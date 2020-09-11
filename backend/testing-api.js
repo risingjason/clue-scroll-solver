@@ -1,39 +1,5 @@
 import wtf from 'wtf_wikipedia';
 
-const wiki = async () => {
-  let page = await wtf.fetch('Treasure Trails/Guide/Anagrams/Beginner', {
-    domain: 'oldschool.runescape.wiki',
-    noOrigin: true,
-  });
-
-  const beginnerAnagramClueRaw = page.tables()[0].json();
-  const beginnerAnagramClueFormatted = beginnerAnagramClueRaw.reduce(
-    (acc, val) => {
-      if (acc.length === 0) {
-        const legendRow = Object.keys(val);
-        acc.push(legendRow);
-      }
-
-      let newRow = [];
-      console.log('Length: ' + Object.keys(val).length);
-      Object.keys(val).forEach((item) => {
-        newRow.push(val[item].text);
-      });
-      acc.push(newRow);
-
-      return acc;
-    },
-    []
-  );
-  console.table(beginnerAnagramClueFormatted);
-  // Anagram clues
-  // Cryptic clues
-  // Emote clues
-  // Hot Cold
-  // Maps
-  // Charlie the Tramp
-};
-
 const CLUE_LEVELS = ['Beginner', 'Easy', 'Medium', 'Hard', 'Elite', 'Master'];
 
 async function getAnagramClues() {
