@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r esm testing-api.js"
+    "start": "node -r esm ./src/parseWiki.js"
   },
   "keywords": [],
   "author": "",
